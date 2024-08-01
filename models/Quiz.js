@@ -28,6 +28,7 @@ module.exports = (Sequelize, DataTypes) => {
     });
     Quiz.associate = function (models) {
         Quiz.belongsTo(models.User, { foreignKey: 'createdBy' });
+        Quiz.hasMany(models.Question, { foreignKey: 'quizId' });
       };
     
       return Quiz;
